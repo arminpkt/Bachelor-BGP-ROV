@@ -1,0 +1,3 @@
+zebrasrv      2600/tcp                 # zebra service
+zebra         2601/tcp                 # zebra vty
+bgpd          2605/tcp                 # BGPd vty

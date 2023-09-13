@@ -1,0 +1,90 @@
+version: '3'
+
+services:
+  r1:
+    container_name: r1
+    build:
+      context: ./
+      dockerfile: Dockerfile_FRR
+    depends_on:
+      - c1
+    networks:
+      n1:
+        ipv4_address: 1.1.1.10
+      n10:
+        ipv4_address: 1.1.10.10
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - ./r1:/etc/frr:rw
+    stdin_open: true
+    tty: true
+    command: /bin/bash /etc/frr/frr_start.sh
+
+  r2:
+    container_name: r2
+    build:
+      context: ./
+      dockerfile: Dockerfile_FRR
+    networks:
+      n1:
+        ipv4_address: 1.1.1.20
+      n20:
+        ipv4_address: 1.1.20.20
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - ./r2:/etc/frr:rw
+    stdin_open: true
+    tty: true
+    command: /bin/bash /etc/frr/frr_start.sh
+
+  c1:
+    container_name: c1
+    build:
+      context: ./
+      dockerfile: Dockerfile_Routinator
+    networks:
+      n10:
+        ipv4_address: 1.1.10.11
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - ./c1:/etc/routinator
+    stdin_open: true
+    tty: true
+    command: routinator -v server #/bin/bash /etc/routinator/routinator_start.sh
+
+networks:
+  n1:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 1.1.1.0/24
+          gateway: 1.1.1.1
+
+  n10:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 1.1.10.0/24
+          gateway: 1.1.10.1
+    
+  n20:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 1.1.20.0/24
+          gateway: 1.1.20.1
