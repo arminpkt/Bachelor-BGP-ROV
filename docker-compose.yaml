@@ -51,6 +51,8 @@ services:
     networks:
       n10:
         ipv4_address: 1.1.10.11
+    ports:
+      - 8000:8323
     cap_add:
       - CAP_NET_RAW
       - NET_ADMIN
@@ -59,7 +61,7 @@ services:
       - ./c1:/etc/routinator
     stdin_open: true
     tty: true
-    command: routinator -v server #/bin/bash /etc/routinator/routinator_start.sh
+    command: routinator -vv --logfile /var/log/routinator.log server --rtr 127.0.0.1:3323 #/bin/bash /etc/routinator/routinator_start.sh
 
 networks:
   n1:

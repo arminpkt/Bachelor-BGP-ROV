@@ -1,11 +1,19 @@
 FROM ubuntu:22.04
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y ca-certificates lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase
+RUN apt-get install -y ca-certificates lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase openssh-server netcat
+RUN apt-get install -y rsyslog
 # Add the GPG key from NLnet Labs:
 RUN curl -fsSL https://packages.nlnetlabs.nl/aptkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/nlnetlabs-archive-keyring.gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/nlnetlabs-archive-keyring.gpg] https://packages.nlnetlabs.nl/linux/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/nlnetlabs.list > /dev/null
 # update and install routinator
 RUN sudo apt update 
 RUN sudo apt -y install routinator
-RUN sudo useradd rpki
+RUN sudo useradd -m rpki
 RUN echo "rpki:cache" | chpasswd
+#RUN cp /etc/routinator/ssh_host_rsa_key* /etc/ssh
+#RUN cp /etc/routinator/sshd_config /etc/ssh
+COPY ./c1/ssh_host_ecdsa_key* /etc/ssh
+COPY ./c1/sshd_config /etc/ssh
+RUN mkdir -p /home/rpki/.ssh
+RUN echo "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMLH0oHDpaBJXlQYX0KVyFg6oxwumBR9juxfJ86GWRIiBmFBss9qUMfaKF4GwsK8dUe4SLHh6lgpLGcQyERfKC0= root@6acc0465cd49" > /home/rpki/.ssh/authorized_keys
+RUN service ssh start

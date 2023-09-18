@@ -1,8 +1,14 @@
 FROM ubuntu:22.04
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase openssh-server netcat
+RUN apt-get install -y lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase ssh-client 
+#rsyslog rsyslog-gnutls
 # add GPG key
 RUN curl -s https://deb.frrouting.org/frr/keys.gpg | sudo tee /usr/share/keyrings/frrouting.gpg > /dev/null
+# install rsyslogd
+#ADD	rsyslog.conf /etc/rsyslog.conf
+#VOLUME  /rsyslog-bin
+#RUN	mkdir /rsyslog-bin \
+#	&& cp /usr/sbin/rsyslogd /usr/lib/rsyslog/* /rsyslog-bin
 # possible values for FRRVER: frr-6 frr-7 frr-8 frr-9 frr-stable
 # frr-stable will be the latest official stable release
 ENV FRRVER="frr-stable"
@@ -11,3 +17,6 @@ RUN echo deb '[signed-by=/usr/share/keyrings/frrouting.gpg]' https://deb.frrouti
 RUN sudo apt update 
 RUN sudo apt -y install frr frr-pythontools frr-rpki-rtrlib
 RUN echo "zebrasrv      2600/tcp                 # zebra service" | sudo tee -a /etc/services
+#RUN ssh-keygen -f /root/.ssh/id_rsa -q -N ""
+#RUN mkdir -p /root/.ssh
+#RUN cp /etc/frr/id_rsa* /root/.ssh/
