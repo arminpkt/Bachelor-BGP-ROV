@@ -61,8 +61,97 @@ services:
       - ./c1:/etc/routinator
     stdin_open: true
     tty: true
-    command: routinator -vv --logfile /var/log/routinator.log server --rtr 127.0.0.1:3323 #/bin/bash /etc/routinator/routinator_start.sh
+    #command: routinator -vv -c /etc/routinator/routinator.conf --logfile /var/log/routinator.log server --rtr 127.0.0.1:3323 #/bin/bash /etc/routinator/routinator_start.sh
+  
 
+  krill1:
+    container_name: krill1
+    build:
+      context: ./
+      dockerfile: Dockerfile_Krill
+    networks:
+      n10:
+        ipv4_address: 1.1.10.15
+    ports:
+      - 8030:3000
+      - 8080:80
+      - 8443:443
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - ./krill1/sites-enabled:/etc/nginx/sites-enabled
+      - ./krill1/misc:/misc
+      #- ./krill1/data:/var/krill/data
+    stdin_open: true
+    tty: true
+    #command: krill
+
+  # ca1:
+  #   container_name: ca1
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile_Krill_CA
+  #   networks:
+  #     n10:
+  #       ipv4_address: 1.1.10.12
+  #   ports:
+  #     - 8001:80
+  #   cap_add:
+  #     - CAP_NET_RAW
+  #     - NET_ADMIN
+  #     - SYS_ADMIN
+  #   volumes:
+  #     - ./ca1/data:/var/lib/krill/data
+  #     - ./ca1/sites-enabled:/etc/nginx/sites-enabled
+  #   stdin_open: true
+  #   tty: true
+  #   command: krill
+  
+  # p1:
+  #   container_name: p1
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile_Krill_Repo
+  #   networks:
+  #     n10:
+  #       ipv4_address: 1.1.10.13
+  #   ports:
+  #     - 8002:80
+  #   cap_add:
+  #     - CAP_NET_RAW
+  #     - NET_ADMIN
+  #     - SYS_ADMIN
+  #   volumes:
+  #     - ./p1:/p1
+  #   stdin_open: true
+  #   tty: true
+    #command: krillc pubserver server init --rrdp https://krillrepo.example.com/rrdp/ --rsync rsync://krillrepo.example.com/repo/ --token 4f271f56b73f379a2f23a5ed0b53b550
+  
+  k1:
+    container_name: k1
+    build:
+      context: ./
+      dockerfile: Dockerfile_Krill_testbed
+    networks:
+      n10:
+        ipv4_address: 1.1.10.14
+    ports:
+      - 9300:3000
+      - 9080:80
+      - 9443:443
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - ./k1/sites-enabled:/etc/nginx/sites-enabled
+      - ./k1/misc:/misc
+      #- ./k1/data:/var/krill/data
+    stdin_open: true
+    tty: true
+    #command: krill
 networks:
   n1:
     driver: bridge
@@ -90,3 +179,12 @@ networks:
       config:
         - subnet: 1.1.20.0/24
           gateway: 1.1.20.1
+    
+  # n30:
+  #   driver: bridge
+  #   enable_ipv6: false
+  #   ipam:
+  #     driver: default
+  #     config:
+  #       - subnet: 1.1.30.0/24
+  #         gateway: 1.1.30.1

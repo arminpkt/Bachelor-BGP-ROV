@@ -1,0 +1,28 @@
+server {
+  server_name testbed.krill.ap;
+  listen 80;
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
+  ssl_certificate /var/krill/testbed.krill.ap.crt;
+  ssl_certificate_key /var/krill/testbed.krill.ap.key;
+  
+  ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+  client_max_body_size 100M;
+
+  # Rewrite the TAL URI used on the testbed page to the real file.
+  rewrite ^/testbed.tal$ /ta/ta.tal;
+  
+  # Maps to the base directory where krill-sync stores RRDP files.
+  location /rrdp {
+     root /var/krill/data/repo/;
+  }
+
+  location /ta {
+     root var/krill/data/repository/;
+  }
+
+  location / {
+      proxy_pass https://localhost:3000/;
+  }
+
+}

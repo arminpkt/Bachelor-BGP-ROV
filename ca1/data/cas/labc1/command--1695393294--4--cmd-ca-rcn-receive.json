@@ -1,0 +1,22 @@
+{
+  "actor": "krill",
+  "time": "2023-09-22T14:34:54.916453400Z",
+  "handle": "labc1",
+  "version": 5,
+  "sequence": 4,
+  "details": {
+    "type": "update_rcvd_cert",
+    "resource_class_name": "0",
+    "resources": {
+      "asn": "AS20000",
+      "ipv4": "1.1.20.0/24",
+      "ipv6": ""
+    }
+  },
+  "effect": {
+    "result": "success",
+    "events": [
+      5
+    ]
+  }
+}

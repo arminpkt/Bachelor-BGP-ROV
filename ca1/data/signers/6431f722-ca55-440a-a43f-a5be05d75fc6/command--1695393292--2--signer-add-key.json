@@ -1,0 +1,19 @@
+{
+  "actor": "krill",
+  "time": "2023-09-22T14:34:52.910137Z",
+  "handle": "6431f722-ca55-440a-a43f-a5be05d75fc6",
+  "version": 2,
+  "sequence": 2,
+  "details": {
+    "AddKey": [
+      "46ACCE11857B3A7C4A22390A577BC4E0709BC476",
+      "46ACCE11857B3A7C4A22390A577BC4E0709BC476"
+    ]
+  },
+  "effect": {
+    "result": "success",
+    "events": [
+      2
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "labc1",
+  "version": 3,
+  "details": {
+    "type": "resource_class_added",
+    "resource_class_name": "0",
+    "parent": "testbed",
+    "parent_resource_class_name": "0",
+    "pending_key": "46ACCE11857B3A7C4A22390A577BC4E0709BC476"
+  }
+}

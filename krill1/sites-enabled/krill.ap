@@ -1,0 +1,10 @@
+server {
+  server_name krill.ap;
+  
+  # Pass all requests to the krill backend.
+  location / {
+    proxy_pass https://localhost:3000/;
+  }
+
+  listen 80;
+}

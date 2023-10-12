@@ -1,0 +1,59 @@
+# default to using syslog. /etc/rsyslog.d/45-frr.conf places the log in
+# /var/log/frr/frr.log
+#
+# Note:
+# FRR's configuration shell, vtysh, dynamically edits the live, in-memory
+# configuration while FRR is running. When instructed, vtysh will persist the
+# live configuration to this file, overwriting its contents. If you want to
+# avoid this, you can edit this file manually before starting FRR, or instruct
+# vtysh to write configuration to a different file.
+frr version 9.0
+frr defaults traditional
+hostname r1
+service integrated-vtysh-config
+log file /var/log/frr/debug.log
+!
+password router
+enable password router
+!
+interface eth0
+ description to bgp peer
+!
+interface eth1
+ description LAN
+!
+rpki
+ rpki cache 1.1.10.11 22 rpki /etc/frr/id_ecdsa preference 1
+ exit
+!
+router bgp 10000
+ bgp router-id 1.1.1.10
+ network 1.1.1.10/24
+ neighbor 1.1.1.20 remote-as 20000
+ neighbor 1.1.1.20 password router
+ !
+ address-family ipv4 unicast
+  redistribute connected
+  neighbor 1.1.1.20 route-map IMPORT in
+  neighbor 1.1.1.20 route-map EXPORT out
+ exit-address-family
+!
+route-map EXPORT permit 10
+ match interface eth1
+!
+route-map EXPORT deny 100
+!
+route-map IMPORT permit 10
+ match rpki invalid
+ set local-preference 10
+!
+route-map IMPORT permit 20
+ match rpki notfound
+ set local-preference 20
+!
+route-map IMPORT permit 100
+ match rpki valid
+ set local-preference 100
+!
+line vty
+!

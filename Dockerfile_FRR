@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase ssh-client 
+RUN apt-get install -y lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase ssh-client bash-completion
 #rsyslog rsyslog-gnutls
 # add GPG key
 RUN curl -s https://deb.frrouting.org/frr/keys.gpg | sudo tee /usr/share/keyrings/frrouting.gpg > /dev/null

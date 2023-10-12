@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y ca-certificates lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase openssh-server netcat
+RUN apt-get install -y ca-certificates lsb-release net-tools curl tcpdump iputils-ping sudo gnupg2 vim netbase openssh-server netcat bash-completion
 RUN apt-get install -y rsyslog
 # Add the GPG key from NLnet Labs:
 RUN curl -fsSL https://packages.nlnetlabs.nl/aptkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/nlnetlabs-archive-keyring.gpg
@@ -16,4 +16,7 @@ COPY ./c1/ssh_host_ecdsa_key* /etc/ssh
 COPY ./c1/sshd_config /etc/ssh
 RUN mkdir -p /home/rpki/.ssh
 RUN echo "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMLH0oHDpaBJXlQYX0KVyFg6oxwumBR9juxfJ86GWRIiBmFBss9qUMfaKF4GwsK8dUe4SLHh6lgpLGcQyERfKC0= root@6acc0465cd49" > /home/rpki/.ssh/authorized_keys
+RUN echo "1.1.10.14       testbed.krill.ap" >> /etc/hosts
+#RUN cp /etc/routinator/k1.crt /usr/local/share/ca-certificates
+#RUN update-ca-certificates
 RUN service ssh start

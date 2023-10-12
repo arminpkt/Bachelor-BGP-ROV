@@ -1,0 +1,15 @@
+FROM ubuntu:22.04
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get install -y ca-certificates curl gnupg lsb-release tcpdump iputils-ping sudo netbase rsync bash-completion
+RUN curl -fsSL https://packages.nlnetlabs.nl/aptkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/nlnetlabs-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/nlnetlabs-archive-keyring.gpg] https://packages.nlnetlabs.nl/linux/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/nlnetlabs.list > /dev/null
+RUN sudo apt update
+RUN sudo apt -y install nginx
+RUN sudo apt install krill
+COPY ./k1/krill.conf /etc/
+COPY ./k1/testbed.krill.ap.crt /var/krill/
+COPY ./k1/testbed.krill.ap.key /var/krill/
+COPY ./k1/rsyncd.conf /etc
+RUN export KRILL_CLI_TOKEN="krill"
+# mkdir /var/krill/data/repository; mkdir /var/krill/data/repository/ta; put ta.tal and ta.cer in tal dir 
+#RUN service nginx start

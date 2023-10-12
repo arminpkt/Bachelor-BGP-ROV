@@ -1,0 +1,28 @@
+{
+  "actor": "krill",
+  "time": "2023-09-22T14:34:52.570672300Z",
+  "handle": "labc1",
+  "version": 3,
+  "sequence": 3,
+  "details": {
+    "type": "update_resource_entitlements",
+    "parent": "testbed",
+    "entitlements": [
+      {
+        "resource_class_name": "0",
+        "resources": {
+          "asn": "AS20000",
+          "ipv4": "1.1.20.0/24",
+          "ipv6": ""
+        }
+      }
+    ]
+  },
+  "effect": {
+    "result": "success",
+    "events": [
+      3,
+      4
+    ]
+  }
+}

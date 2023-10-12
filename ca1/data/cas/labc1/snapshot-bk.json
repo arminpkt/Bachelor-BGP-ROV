@@ -1,0 +1,58 @@
+{
+  "handle": "labc1",
+  "version": 5,
+  "id": {
+    "cert": {
+      "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuMoiWP+xPS0bj1gtUQwg07m9DQn71vu824cDPYeZdraJzS7+6y/cICZAkO7cJnYvg+i+pecLWMGFXRLbXyRhrURnKfESwEFTMG3SuOuwUuFP1l9mOBTJrNA/MW5srs/Y15NoXR7QGPH+w6AbYBvM7lxgpwDOon8aViYEFIfVeV377Uf1NSDyFDG1KTdjtSCFan0OxFJ7vrvBJKYjrplcPy2iCi1Jdggyr6lP5tKX+SXRAWnk3K3JscWGv0/EecCM0XkoFaUl8PsNiwuefDdiclsOhC85iYIG6aIMKwX7kkdnpBE1iNxCgTwbUgdw7HWUl2tn0JGaWFPaZYXc6JyXzQIDAQAB",
+      "base64": "MIIDEzCCAfugAwIBAgIBATANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyg1Nzg3MEVFQTdGMDg5REYwRDgyQTRFODI3OTBDMEQzQ0YyODhGODg1MB4XDTIzMDkyMDA4MTQ0NloXDTM4MDkyMDA4MTk0NlowMzExMC8GA1UEAxMoNTc4NzBFRUE3RjA4OURGMEQ4MkE0RTgyNzkwQzBEM0NGMjg4Rjg4NTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALjKIlj/sT0tG49YLVEMINO5vQ0J+9b7vNuHAz2HmXa2ic0u/usv3CAmQJDu3CZ2L4PovqXnC1jBhV0S218kYa1EZynxEsBBUzBt0rjrsFLhT9ZfZjgUyazQPzFubK7P2NeTaF0e0Bjx/sOgG2AbzO5cYKcAzqJ/GlYmBBSH1Xld++1H9TUg8hQxtSk3Y7UghWp9DsRSe767wSSmI66ZXD8togotSXYIMq+pT+bSl/kl0QFp5NytybHFhr9PxHnAjNF5KBWlJfD7DYsLnnw3YnJbDoQvOYmCBumiDCsF+5JHZ6QRNYjcQoE8G1IHcOx1lJdrZ9CRmlhT2mWF3Oicl80CAwEAAaMyMDAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUV4cO6n8InfDYKk6CeQwNPPKI+IUwDQYJKoZIhvcNAQELBQADggEBAB+gDWeFye2PYa+9qFmF0uhWHLMZgqU5RL6p/TT3/73MQWzva0BogkRHxoVMRkvCi1D6Y9LwK9zHRQGQcBMFA/kfaTQ9W7gj56uaqsBwdOlF+9wl+FaLx5dXmbfvP320Z9JOZfbRXOu1YmvgylDijULzka5dUe678cRsh2eLxmc99VGMndXGmDw0LuvWtHFBie7FEYpn8eaHCvB4rr7UBMy2jMw5dG6K/18fM/XHKfjiDkxzPVHZvBT/3/qxidFyFBkkAln0quZYgvjQicUO1ZXj08Jd2L+oryj/0zO9WHPZRrryy7g8jIZabnKxAz4/cr5yjskO9l3E9WNc2WPlcEo=",
+      "hash": "4f16457a945a07a4e91e2e59f9f20ce5ba0883866e9798741e0da48b3a8a596f"
+    }
+  },
+  "repository": {
+    "repo_info": {
+      "sia_base": "rsync://testbed.krill.cloud/repo/labc1/",
+      "rrdp_notification_uri": "https://testbed.krill.cloud/rrdp/notification.xml"
+    },
+    "server_info": {
+      "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt527OPZI+kdbN6mnnbP9ajRPjxTo1A0FmJiV1bEjzffkY1Z8KtFiM8n62301xyCYBbDDDzLSVH/tQUs19IXW5X40eEhmrIM5eUWOiT1PBHZQ3dC7bLNqaBFUWqV6ZNUXCqWIivqi/4SZcHmdyOcOeyWlO7zx4tMhzPCFMs7+77/B9Oqrz0D2BR8lB0E7OdmTDARUuIG/Qi/aBoIc7WixMjfbotaFplo/nH0T+IufHSqr1jh7W7M8ouT3yYtkwEcWQ7QVBUKEeNaWItbBZiNOAlkZ/bnvxaZ51XsL2ZZI4sW/p/5i3HOvialU8qrs3glVNGtRvrcNW78PWlBEUbZS5QIDAQAB",
+      "service_uri": "https://testbed.krill.cloud/rfc8181/labc1/"
+    }
+  },
+  "parents": {
+    "testbed": {
+      "type": "rfc6492",
+      "service_uri": "https://testbed.krill.cloud/rfc6492/testbed",
+      "parent_handle": "testbed",
+      "child_handle": "labc1",
+      "id_cert": {
+        "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6mEUKjDWRgHlqzrCR0Oqg9IEWEB75yzPyEZDVIIiDwi91DY6FQU7Ep9DwSGgIAF8OPTw77UlJhFPgkdH0jt8uaU33Q8mZ2TNU3Wtq7Eu7KEKTQ+yM0o+3bNXEpIrT/pCHAqJ0V+ak9LX2AC1PyKhlGWkgYt78kgHKzzL9ssIaUNYzpH4OCDt9QiPGiW6L1U6javJnI5a5ecGfybxeuoHOAg53bpLn1zbz6fDapr07ZdCD218SnesnGQn7apRDlISsN8eTBBsQkw9hN1NAUpZaZ6scVAhabwXcwlWpkq7xkf433MCKbEahKwzq7o/BhBdZtTl/SxRQgYL0+8rlQO4pwIDAQAB",
+        "base64": "MIIDEzCCAfugAwIBAgIBATANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyhBMUE0ODgwQjc3Q0Q1OTEyNENBNDk2MzcyMTQ5NzVGMkJBRTkyRjk1MB4XDTIzMDQyNjEzMzI1MVoXDTM4MDQyNjEzMzc1MVowMzExMC8GA1UEAxMoQTFBNDg4MEI3N0NENTkxMjRDQTQ5NjM3MjE0OTc1RjJCQUU5MkY5NTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOphFCow1kYB5as6wkdDqoPSBFhAe+csz8hGQ1SCIg8IvdQ2OhUFOxKfQ8EhoCABfDj08O+1JSYRT4JHR9I7fLmlN90PJmdkzVN1rauxLuyhCk0PsjNKPt2zVxKSK0/6QhwKidFfmpPS19gAtT8ioZRlpIGLe/JIBys8y/bLCGlDWM6R+Dgg7fUIjxolui9VOo2ryZyOWuXnBn8m8XrqBzgIOd26S59c28+nw2qa9O2XQg9tfEp3rJxkJ+2qUQ5SErDfHkwQbEJMPYTdTQFKWWmerHFQIWm8F3MJVqZKu8ZH+N9zAimxGoSsM6u6PwYQXWbU5f0sUUIGC9PvK5UDuKcCAwEAAaMyMDAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUoaSIC3fNWRJMpJY3IUl18rrpL5UwDQYJKoZIhvcNAQELBQADggEBAAsS0FwEIC+ZvL8Te588c4twPTG93I0vopaE4vR6gwD1YHPCftjEmZ1y9Tx/nk3jL3lgnNSSXbkHV31jcljz8f1RmgkXvOR0SGr/YFXAxuqhroJUm3j6pre/K/7BIhMwbcl/ckNL/7h/fQI5rQs2nt1sKB6CxTIhYPNTUF2JO9Gs5PBGJSyiVXm0E28SQ7nzMfUDqa+kAd/+0y0z6OJwpg3k2K9OVkx3PZxZ6wxkboNbqsSvEKaf2kAKNOpBnPw/MN98rRy5Jfi2e/fx0J1MpD2LkaoZZC23DlNwdu6jXkqWnbNLBxtRqlU2NbaAbhnYTEkOX9dIwlh+Ld+72S7wfGk=",
+        "hash": "337e6a3f6aa0aa95a5e52a321e19a384ca9fcfb7f9c84a8f0e147da29e53d7e9"
+      }
+    }
+  },
+  "next_class_name": 1,
+  "resources": {
+    "0": {
+      "name": "0",
+      "name_space": "0",
+      "parent_handle": "testbed",
+      "parent_rc_name": "0",
+      "last_key_change": "2023-09-22T14:34:52.966289400Z",
+      "key_state": {
+        "pending": {
+          "key_id": "46ACCE11857B3A7C4A22390A577BC4E0709BC476",
+          "request": {
+            "class_name": "0",
+            "limit": {},
+            "csr": "MIIDoTCCAokCAQAwMzExMC8GA1UEAxMoNDZBQ0NFMTE4NTdCM0E3QzRBMjIzOTBBNTc3QkM0RTA3MDlCQzQ3NjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIbhZfhwJWYSyrYo2DKd2BN5Wro3Wjn/iKbCVoNcZZ+atX4jpdQJa2mDCFjVfU4Vx2p/4y6uNckb2KCpsTNeFbdbBt5Le0e99KY4gfdxKRg3s3BURoi4st676JWIYGVQirGhaWO9sVpqkgc7cQnoDdmtmnNioxOYuOXM84OM+N8iLqtUyIZvu3kvF0fdbBvX3pmt8vtDe5fBUnK5FlOQtMJVhZbSBob7sOyL08bohFltuHySN3MCcifLhNLESslQJF8WJ+Vw26/lSbbzj/pI24AP/PbepfkSSqP8Dh+FgO0kab9D96+7vCW8hR3X33ROc6iJwIVqCVocR5J6RfDhU60CAwEAAaCCAScwggEjBgkqhkiG9w0BCQ4xggEUMIIBEDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjCB7AYIKwYBBQUHAQsBAQAEgdwwgdkwNQYIKwYBBQUHMAWGKXJzeW5jOi8vdGVzdGJlZC5rcmlsbC5jbG91ZC9yZXBvL2xhYmMxLzAvMGEGCCsGAQUFBzAKhlVyc3luYzovL3Rlc3RiZWQua3JpbGwuY2xvdWQvcmVwby9sYWJjMS8wLzQ2QUNDRTExODU3QjNBN0M0QTIyMzkwQTU3N0JDNEUwNzA5QkM0NzYubWZ0MD0GCCsGAQUFBzANhjFodHRwczovL3Rlc3RiZWQua3JpbGwuY2xvdWQvcnJkcC9ub3RpZmljYXRpb24ueG1sMA0GCSqGSIb3DQEBCwUAA4IBAQBvAAOXD5QiH69+oCjKNRxWaRmecMBL4YuYG2dR3bUwT8tgaEVKQOokcCtONyaYcSj6X4RU12lxdp+D6ClPdKSdVc5lExQ+65QoaJdJOn2uThsVNSlaisFgnFcJqoggBvqWuTZzTpbulY3mGpJKldBcChBgqNgZfd01EJUDz5AZ/rije+FEgi2pMbSMWYyGzU9DV2QCQ/L9KdLTfX2SbTBJW438JMxD0mEWK0+HqOasgyh0+t83AXB7fssAH/snmcYictoGKcWk8Y8uPwkqvSE0+sFeaUxVE6cU3M0zmWd1RXGktCGGOr85Dr51YwuHdmphoYrQoN27dUq8uu+3McsX"
+          }
+        }
+      }
+    }
+  },
+  "children": {},
+  "routes": {
+    "map": {}
+  }
+}
